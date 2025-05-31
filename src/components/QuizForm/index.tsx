@@ -1,3 +1,4 @@
+"use client";
 import clsx from "clsx";
 import { Quiz } from "@/types/quiz";
 

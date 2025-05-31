@@ -1,3 +1,5 @@
+"use client";
+
 type ResultSummaryProps = {
   totalSoal: number;
   totalBenar: number;

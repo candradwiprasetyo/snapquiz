@@ -1,3 +1,5 @@
+"use client";
+
 type QuizListProps = {
   quizCount: number;
   setQuizCount: (value: number) => void;
