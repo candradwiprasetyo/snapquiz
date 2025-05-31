@@ -6,6 +6,7 @@ import QuizList from "@/components/QuizList";
 import QuizForm from "@/components/QuizForm";
 import ResultSummary from "@/components/ResultSummary";
 import { useOcr } from "@/hooks/useOcr";
+import ModalLoading from "@/components/ModalLoading";
 
 export default function OcrReader() {
   const [userAnswers, setUserAnswers] = useState<Record<string, string>>({});
@@ -120,6 +121,8 @@ export default function OcrReader() {
           nilai={nilai}
         />
       )}
+
+      {loading && <ModalLoading />}
     </div>
   );
 }
