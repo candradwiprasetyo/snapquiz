@@ -1,0 +1,65 @@
+import { NextRequest, NextResponse } from "next/server";
+import { OpenAI } from "openai";
+
+const openai = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY,
+});
+
+export async function POST(req: NextRequest) {
+  try {
+    const body = await req.json();
+    const { text, count = 5 } = body;
+
+    if (!text) {
+      return NextResponse.json(
+        { error: "Teks tidak ditemukan" },
+        { status: 400 }
+      );
+    }
+
+    const prompt = `
+    Buatlah ${count} soal kuis pilihan ganda (a, b, c, d, e) berdasarkan teks berikut:
+
+    "${text}"
+
+    Format output json seperti berikut:
+    [
+      {
+        "question": "Apa yang dimaksud dengan ...?",
+        "choices": {
+          "a": "Pilihan A",
+          "b": "Pilihan B",
+          "c": "Pilihan C",
+          "d": "Pilihan D",
+          "e": "Pilihan E"
+        },
+        "answer": "b"
+      },
+      ...
+    ]
+
+    Pastikan jawaban yang anda berikan hanya format json yang saya inginkan. jangan ada kata-kata lain yang tidak saya butuhkan.
+    
+    berikan jawaban hanya format json tanpa \`json atau \`\`.
+    `;
+
+    const completion = await openai.chat.completions.create({
+      model: "gpt-4o-mini",
+      messages: [
+        {
+          role: "user",
+          content: prompt,
+        },
+      ],
+      temperature: 0.7,
+    });
+
+    const raw = completion.choices[0].message.content;
+    const quizzes = JSON.parse(raw || "[]");
+
+    return NextResponse.json({ quizzes });
+  } catch (error: any) {
+    console.error("API Error:", error);
+    return NextResponse.json({ error: error.message }, { status: 500 });
+  }
+}
