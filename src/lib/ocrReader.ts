@@ -39,8 +39,12 @@ export const handleFilesOCR = async (files: FileList): Promise<string[]> => {
       } = await Tesseract.recognize(processedBlob, "eng+ind");
 
       results.push(text);
-    } catch (err: any) {
-      results.push("Error: " + err.message);
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        results.push("Error: " + err.message);
+      } else {
+        results.push("Terjadi kesalahan.");
+      }
     }
   }
 

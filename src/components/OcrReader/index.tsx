@@ -53,7 +53,7 @@ export default function OcrReader() {
   const nilai = totalSoal > 0 ? Math.round((totalBenar / totalSoal) * 100) : 0;
 
   return (
-    <div className="p-4 w-full md:w-auto mx-auto">
+    <div className="w-full md:w-auto mx-auto">
       {!isQuizGenerated && (
         <>
           <FileUploader
@@ -64,7 +64,7 @@ export default function OcrReader() {
           <div className="text-center w-full md:w-[400px] mx-auto">
             {selectedFiles && selectedFiles.length > 0 && (
               <>
-                <p className="mt-2 text-sm mb-4 border rounded p-4 bg-green-100 text-center font-bold text-gray-600">
+                <p className="text-sm mb-4 rounded p-4 text-center font-bold text-gray-600">
                   {selectedFiles.length} gambar dipilih
                 </p>
 
@@ -76,7 +76,7 @@ export default function OcrReader() {
 
                 <button
                   onClick={handleCreateQuiz}
-                  className={`bg-green-500 rounded-full text-white text-sm py-4 px-8 w-full md:w-auto mx-auto ${
+                  className={`bg-green-400 rounded-full text-white text-sm py-4 px-8 w-full md:w-auto mx-auto ${
                     loading ? "bg-gray-200" : ""
                   }`}
                   disabled={loading}

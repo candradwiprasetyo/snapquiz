@@ -17,7 +17,7 @@ export default function QuizForm({
   onSubmit,
 }: QuizFormProps) {
   return (
-    <form className="mt-6 space-y-8">
+    <form className="space-y-8">
       {quizzes.map((group, fileIndex) => (
         <div key={fileIndex}>
           {group.map((quiz, quizIndex) => {
@@ -28,7 +28,20 @@ export default function QuizForm({
             const key = `q-${globalIndex}`;
 
             return (
-              <div key={key} className="mb-4">
+              <div
+                key={key}
+                className={clsx(
+                  "mb-4 p-6 rounded-2xl text-sm",
+                  !showResult && "bg-white",
+                  showResult &&
+                    userAnswers[key] === quiz.answer &&
+                    "bg-green-300",
+                  showResult &&
+                    userAnswers[key] !== quiz.answer &&
+                    "bg-red-300",
+                  showResult && "text-white"
+                )}
+              >
                 <p className="mb-2 font-medium">
                   {globalIndex + 1}. {quiz.question}
                 </p>
@@ -49,10 +62,10 @@ export default function QuizForm({
                 {showResult && (
                   <p
                     className={clsx(
-                      "text-sm mt-1",
+                      "text-sm mt-3 font-bold pl-4",
                       userAnswers[key] === quiz.answer
-                        ? "text-green-600"
-                        : "text-red-600"
+                        ? "text-green-700"
+                        : "text-red-700"
                     )}
                   >
                     Jawaban benar: {quiz.answer}

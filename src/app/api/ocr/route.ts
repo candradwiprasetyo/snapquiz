@@ -58,8 +58,13 @@ export async function POST(req: NextRequest) {
     const quizzes = JSON.parse(raw || "[]");
 
     return NextResponse.json({ quizzes });
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error("API Error:", error);
-    return NextResponse.json({ error: error.message }, { status: 500 });
+
+    if (error instanceof Error) {
+      return NextResponse.json({ error: error.message }, { status: 500 });
+    }
+
+    return NextResponse.json({ error: "Terjadi kesalahan." }, { status: 500 });
   }
 }
