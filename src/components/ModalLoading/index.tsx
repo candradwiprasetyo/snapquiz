@@ -26,8 +26,8 @@ export default function ModalLoading() {
             />
           </svg>
           <p className="text-lg font-semibold text-gray-700">
-            Sebentar ya… <br></br>
-            <span className="text-sm">Kami sedang menyiapkan quiz untukmu</span>
+            One moment please… <br></br>
+            <span className="text-sm">We are crafting your quiz</span>
           </p>
         </div>
       </div>

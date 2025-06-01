@@ -22,10 +22,10 @@ export default function ResultSummary({
         <p>Salah {totalSalah}</p>
       </div>
       <div className="w-1/2 text-center bg-gray-600 p-6">
-        <p className="font-semibold mt-2 text-2xl">
+        <div className="font-semibold mt-2 text-2xl">
           <div className="mb-2 text-gray-300">Nilai</div>
           <span className="text-5xl">{nilai}</span>
-        </p>
+        </div>
       </div>
     </div>
   );

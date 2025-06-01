@@ -26,7 +26,7 @@ export default function FileUploader({
         disabled={loading}
       >
         <i className="material-icons text-white w-8">images</i>
-        Upload dari Galeri
+        Upload from Gallery
       </button>
       <input
         ref={inputRefGallery}
@@ -46,7 +46,7 @@ export default function FileUploader({
             disabled={loading}
           >
             <i className="material-icons text-white w-8">photo_camera</i>
-            Ambil Foto Kamera
+            Take a picture
           </button>
           <input
             ref={inputRefCamera}

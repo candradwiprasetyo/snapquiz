@@ -32,7 +32,7 @@ export default function QuizForm({
               <div
                 key={key}
                 className={clsx(
-                  "mb-4 p-6 rounded-2xl text-sm",
+                  "mb-4 p-6 rounded-2xl text-sm flex md:min-w-[700px]",
                   !showResult && "bg-white",
                   showResult &&
                     userAnswers[key] === quiz.answer &&
@@ -43,35 +43,40 @@ export default function QuizForm({
                   showResult && "text-white"
                 )}
               >
-                <p className="mb-2 font-medium">
-                  {globalIndex + 1}. {quiz.question}
-                </p>
-                {Object.entries(quiz.choices).map(([choiceKey, choiceVal]) => (
-                  <label key={choiceKey} className="block mb-1 ml-4">
-                    <input
-                      type="radio"
-                      name={key}
-                      value={choiceKey}
-                      checked={userAnswers[key] === choiceKey}
-                      onChange={() => onAnswer(key, choiceKey)}
-                      disabled={showResult}
-                      className="mr-2"
-                    />
-                    {choiceVal}
-                  </label>
-                ))}
-                {showResult && (
-                  <p
-                    className={clsx(
-                      "text-sm mt-3 font-bold pl-4",
-                      userAnswers[key] === quiz.answer
-                        ? "text-green-700"
-                        : "text-red-700"
-                    )}
-                  >
-                    Jawaban benar: {quiz.answer}
-                  </p>
-                )}
+                <div className="w-5 flex-none">
+                  <p className="mb-2 font-bold">{globalIndex + 1}.</p>
+                </div>
+                <div className="w-5 flex-grow">
+                  <div className="mb-3 font-bold">{quiz.question}</div>
+                  {Object.entries(quiz.choices).map(
+                    ([choiceKey, choiceVal]) => (
+                      <label key={choiceKey} className="block mb-1">
+                        <input
+                          type="radio"
+                          name={key}
+                          value={choiceKey}
+                          checked={userAnswers[key] === choiceKey}
+                          onChange={() => onAnswer(key, choiceKey)}
+                          disabled={showResult}
+                          className="mr-2"
+                        />
+                        {choiceVal}
+                      </label>
+                    )
+                  )}
+                  {showResult && (
+                    <p
+                      className={clsx(
+                        "text-sm mt-3 font-bold",
+                        userAnswers[key] === quiz.answer
+                          ? "text-green-700"
+                          : "text-red-700"
+                      )}
+                    >
+                      Correct Answer: {quiz.answer}
+                    </p>
+                  )}
+                </div>
               </div>
             );
           })}
@@ -85,7 +90,7 @@ export default function QuizForm({
             onClick={onSubmit}
             className="bg-green-400 text-white py-4 px-8 rounded-full mx-auto"
           >
-            Jawab
+            Lets See How I Did
           </button>
         </div>
       )}

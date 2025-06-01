@@ -66,7 +66,8 @@ export default function OcrReader() {
             {selectedFiles && selectedFiles.length > 0 && (
               <>
                 <p className="text-sm mb-4 rounded p-4 text-center font-bold text-gray-600">
-                  {selectedFiles.length} gambar dipilih
+                  {selectedFiles.length} image{selectedFiles.length > 1 && "s"}{" "}
+                  selected
                 </p>
 
                 <QuizList
@@ -82,7 +83,7 @@ export default function OcrReader() {
                   }`}
                   disabled={loading}
                 >
-                  {loading ? "Memproses..." : "Buat Quiz"}
+                  {loading ? "Processing..." : "Create Quiz"}
                 </button>
               </>
             )}
@@ -105,9 +106,9 @@ export default function OcrReader() {
           <div className="text-center mt-6">
             <button
               onClick={handleResetQuiz}
-              className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold py-2 px-4 rounded-full"
+              className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold py-4 px-8 rounded-full mb-4"
             >
-              Buat Ulang Quiz
+              Recreate Quiz
             </button>
           </div>
         </>

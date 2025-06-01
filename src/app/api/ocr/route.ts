@@ -25,18 +25,20 @@ export async function POST(req: NextRequest) {
     Format output json seperti berikut:
     [
       {
-        "question": "Apa yang dimaksud dengan ...?",
+        "question": "Question ...?",
         "choices": {
-          "a": "Pilihan A",
-          "b": "Pilihan B",
-          "c": "Pilihan C",
-          "d": "Pilihan D",
-          "e": "Pilihan E"
+          "a": "...",
+          "b": "...",
+          "c": "...",
+          "d": "...",
+          "e": "..."
         },
         "answer": "b"
       },
       ...
     ]
+
+    Jika materi soal adalah bahasa indonesia, maka berikan json dalam bahasa indonesia, jika materi bukan bahasa indonesia maka berikan json dalam bahasa inggris.
 
     Pastikan jawaban yang anda berikan hanya format json yang saya inginkan. jangan ada kata-kata lain yang tidak saya butuhkan.
     
