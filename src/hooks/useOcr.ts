@@ -1,3 +1,5 @@
+"use client";
+
 import { useState } from "react";
 import { handleFilesOCR } from "@/lib/ocrReader";
 import { Quiz } from "@/types/quiz";
