@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Poppins, Satisfy } from "next/font/google";
+import { Geist, Geist_Mono, Poppins, Satisfy, Fredoka } from "next/font/google";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -26,6 +26,12 @@ const satisfy = Satisfy({
   variable: "--font-satisfy",
   weight: ["400"],
   display: "swap",
+});
+
+const fredoka = Fredoka({
+  subsets: ["latin"],
+  weight: ["400", "500", "700"],
+  variable: "--font-fredoka",
 });
 
 export const metadata: Metadata = {
@@ -60,7 +66,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${poppins.variable} ${satisfy.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${poppins.variable} ${satisfy.variable} ${fredoka.variable} antialiased`}
       >
         {children}
       </body>

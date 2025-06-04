@@ -65,7 +65,7 @@ export default function OcrReader() {
           <div className="text-center w-full md:w-[400px] mx-auto">
             {selectedFiles && selectedFiles.length > 0 && (
               <>
-                <p className="text-sm mb-4 rounded p-4 text-center font-bold text-gray-600">
+                <p className="text-2xl mb-4 rounded p-4 text-center font-bold text-gray-600">
                   {selectedFiles.length} image{selectedFiles.length > 1 && "s"}{" "}
                   selected
                 </p>
@@ -78,7 +78,7 @@ export default function OcrReader() {
 
                 <button
                   onClick={handleCreateQuiz}
-                  className={`bg-green-400 rounded-full text-white text-sm py-4 px-8 w-full md:w-auto mx-auto ${
+                  className={`bg-green-400 rounded-full text-white text-xl  py-4 px-8 w-full md:w-auto mx-auto font-medium ${
                     loading ? "bg-gray-200" : ""
                   }`}
                   disabled={loading}

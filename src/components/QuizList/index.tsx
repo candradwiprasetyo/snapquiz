@@ -17,7 +17,7 @@ export default function QuizList({
         id="quiz-count"
         value={quizCount}
         onChange={(e) => setQuizCount(Number(e.target.value))}
-        className="mb-4 p-4 border rounded-full w-full"
+        className="mb-4 p-4 rounded-full w-full"
         disabled={disabled}
       >
         <option value={5}>5 quiz</option>

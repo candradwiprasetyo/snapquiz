@@ -17,5 +17,26 @@
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: "Poppins", sans-serif;
+  font-family: "Fredoka", sans-serif;
+}
+
+.bg-primary {
+  /* background-color: #f8f8f8; */
+  background-color: #fbf5f2;
+}
+
+.bg-button-red {
+  background-color: #e65371;
+}
+
+.bg-button-purple {
+  background-color: #6332c6;
+}
+
+.bg-button-yellow {
+  background-color: #fdcc70;
+}
+
+.text-title-primary {
+  color: #4a4343;
 }

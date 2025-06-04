@@ -19,13 +19,12 @@ export default function FileUploader({
   };
 
   return (
-    <div className="text-center w-full md:w-[400px] mx-auto">
+    <div className="text-center w-full md:w-[400px] mx-auto text-xl">
       <button
         onClick={() => inputRefGallery.current?.click()}
-        className="bg-blue-400 text-white px-8 py-4 rounded mb-4 w-full mx-auto rounded-full flex items-center gap-1 justify-center"
+        className="bg-button-red text-white px-8 py-4 rounded mb-4 w-full font-medium mx-auto rounded-full flex items-center gap-1 justify-center"
         disabled={loading}
       >
-        <i className="material-icons text-white w-8">images</i>
         Upload from Gallery
       </button>
       <input
@@ -42,10 +41,9 @@ export default function FileUploader({
         <>
           <button
             onClick={() => inputRefCamera.current?.click()}
-            className="bg-green-400 text-white px-8 py-4 rounded mb-4 w-full md:w-auto rounded-full flex items-center gap-1 justify-center"
+            className="bg-button-yellow text-white px-8 py-4 rounded mb-4 w-full font-medium md:w-auto rounded-full flex items-center gap-1 justify-center"
             disabled={loading}
           >
-            <i className="material-icons text-white w-8">photo_camera</i>
             Take a picture
           </button>
           <input

@@ -18,7 +18,7 @@ export default function QuizForm({
   onSubmit,
 }: QuizFormProps) {
   return (
-    <form className="space-y-8">
+    <form className="space-y-8 text-stone-500">
       {quizzes.map((group, fileIndex) => (
         <div key={fileIndex}>
           {group.map((quiz, quizIndex) => {
@@ -32,7 +32,7 @@ export default function QuizForm({
               <div
                 key={key}
                 className={clsx(
-                  "mb-4 p-6 rounded-2xl text-sm flex md:min-w-[700px]",
+                  "mb-4 p-6 rounded-2xl text-lg flex md:min-w-[700px]",
                   !showResult && "bg-white",
                   showResult &&
                     userAnswers[key] === quiz.answer &&
@@ -50,7 +50,7 @@ export default function QuizForm({
                   <div className="mb-3 font-bold">{quiz.question}</div>
                   {Object.entries(quiz.choices).map(
                     ([choiceKey, choiceVal]) => (
-                      <label key={choiceKey} className="block mb-1">
+                      <label key={choiceKey} className="block mb-1 font-medium">
                         <input
                           type="radio"
                           name={key}
@@ -88,7 +88,7 @@ export default function QuizForm({
           <button
             type="button"
             onClick={onSubmit}
-            className="bg-green-400 text-white py-4 px-8 rounded-full mx-auto"
+            className="bg-button-purple text-white py-4 px-8 rounded-full mx-auto"
           >
             Lets See How I Did
           </button>
